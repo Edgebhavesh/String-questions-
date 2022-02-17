@@ -1,0 +1,19 @@
+while(t-->0)
+					  {
+						  String str = sc.next();
+                          int count=1;
+						  for(int i=0;i<str.length()-1;i++)
+						  {
+							  if(str.charAt(i)!=str.charAt(i+1))
+							  {
+								  System.out.printf("%c%d",str.charAt(i),count);
+								  count=1;
+							  }
+							  else
+							  {
+								  count++;
+							  }
+						  }
+                        System.out.printf("%c%d\n",str.charAt(str.length()-1),count);
+                       
+					  }
