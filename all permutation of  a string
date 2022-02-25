@@ -1,0 +1,45 @@
+// Java program to find the length of the
+// longest substring without repeating
+// characters
+import java.io.*;
+import java.util.*;
+
+class Main{
+
+
+// Driver code
+// WAP to write all the permutation in a given string 
+public static void permutation(String str,String answer)
+{
+    if(str.length()==0)
+     {
+         System.out.println(answer);
+         return ;
+
+     }
+            
+     else                                                      // ABC
+     {
+         for(int i=0;i<str.length();i++)
+         {
+             char ch=str.charAt(i);
+             
+             String left_Subarray = str.substring(0,i);
+             String right_Subarray=str.substring(i+1);
+             String rest=left_Subarray+right_Subarray;
+             permutation(rest,answer+ch);
+         }
+     }
+}
+public static void main(String[] args)
+{
+
+String str="ABC";
+String answer="";
+
+   permutation(str,answer);
+
+}
+}
+
+// This code is contributed by akhilsaini
