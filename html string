@@ -1,0 +1,25 @@
+function HTMLElements(str) {
+    let openingTags = str.match(/<\w+>/g)
+    let closingTags = str.match(/(<\/\w+>)/g);
+    let sin_par = []
+
+    for (const ciclo_1 in openingTags) {
+        tiene_par = false
+        for (ciclo_2 in closingTags) {
+            //console.log("##: " + openingTags[ciclo_1] + " : " + closingTags[ciclo_2])
+            if (openingTags[ciclo_1] === closingTags[ciclo_2].replace("/", "")) {
+                closingTags.splice(ciclo_2, 1)
+                tiene_par = true
+            }
+        }
+        
+        if (tiene_par == false) {
+            //console.log("etiqueta sin par: " + openingTags[ciclo_1].replace(/<|>/g, ''))
+            sin_par.push(openingTags[ciclo_1].replace(/<|>/g, ''))
+        } 
+    }
+    longitud = sin_par.length
+    //console.log("RESULTADO: " + sin_par)
+    return longitud>0 ? sin_par[0] : true;
+
+}
