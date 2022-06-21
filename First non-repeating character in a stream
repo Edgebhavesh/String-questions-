@@ -1,0 +1,32 @@
+class Solution
+{
+    public String FirstNonRepeating(String s)
+    {
+        // code here
+       if(s=="")
+         return "";
+      int a[]=new int[26];
+      
+      String res="";
+      
+      Queue<Character> q=new LinkedList<>();
+      
+      for(int i=0;i<s.length();i++)
+      {
+          char ch=s.charAt(i);
+           a[ch-'a']++;
+          if(a[ch-'a']==1)
+           q.add(ch);
+           
+           while(q.size()!=0 && a[q.peek()-'a']>1)
+           {
+               q.poll();
+           }
+           if(q.isEmpty())
+           res+='#';
+           else
+           res+=q.peek();
+      }
+      return res;
+    }
+}
